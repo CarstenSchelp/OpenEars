@@ -18,6 +18,16 @@ Initial documentation at:  [here](https://www.iotforall.com/tensorflow-sound-cla
 Fetch a preloaded PI image from: https://drive.google.com/open?id=1sxMrxHLQPB092P9lWIoXFkvLKNX6K7Da (currently only Python 2.7) Download this, extract the zip, en put the image on a 16GB SD card (like you would put a stretch image). Downloading
 will take some time, though. Be advised, it is just a simple copy of a prefab installation, maybe some additional configuration has to be done.
 
+Especially, the python modules numpy and scipy will be installed and compiled. In order to enable your pi to do this, we have to activate some virtual memory (otherwise compilation will be a nono):
+* Set CONF_SWAPSIZE=2048 in /etc/dphys-swapfile (use: sudo nano dphys-swapfile)
+* run: `sudo /etc/init.d/dphys-swapfile stop`
+* run: `sudo /etc/init.d/dphys-swapfile start`
+
+When the installations are finished, you can bring back the swapfile to its normal size.
+* Set CONF_SWAPSIZE=100 in /etc/dphys-swapfile (use: sudo nano dphys-swapfile)
+* run: `sudo /etc/init.d/dphys-swapfile stop` (may take some time as the swapspace is purged)
+* run: `sudo /etc/init.d/dphys-swapfile start`
+
 **- or -**
 
 Go to the directory install/pi of this repository, choose your python version, and follow the instructions in the INSTALL.md for this version. When done, return here.
